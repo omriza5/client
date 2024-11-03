@@ -1,0 +1,14 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  font-size: 1.25rem; /* larger font */
+}
+
+.active-link {
+  font-weight: 800; /* make it bolder */
+  color: #0056b3;
+  border-bottom: 3px solid #0056b3; /* or a background color */
+}
