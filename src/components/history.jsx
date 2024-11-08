@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5001/api";
+
 const History = () => {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -8,7 +11,7 @@ const History = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:5001/api/pokemons")
+      .get(`${apiUrl}/pokemons`)
       .then((res) => {
         setPokemons(res.data);
         setLoading(false);

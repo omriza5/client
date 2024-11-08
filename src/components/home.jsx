@@ -1,18 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
+
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5001/api";
+
 const Home = () => {
   const [poke, setPoke] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const handlePokeClick = async () => {
+    console.log("P_IP: ", process.env.REACT_APP_API_URL);
     try {
       setPoke(null);
       setLoading(true);
       setError("");
-      const { data: pokemon } = await axios.get(
-        "http://localhost:5001/api/pokemon"
-      );
+      const { data: pokemon } = await axios.get(`${apiUrl}/pokemon`);
 
       setPoke(pokemon);
     } catch (e) {
