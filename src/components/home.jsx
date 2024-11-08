@@ -1,7 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
-const apiUrl = import.meta.env.VITE_APP_API_URL || "http://localhost:5001/api";
+const apiUrl = import.meta.env.VITE_APP_API_URL
+  ? `${import.meta.env.VITE_APP_API_URL}/api`
+  : "http://localhost:5001/api";
 
 const Home = () => {
   const [poke, setPoke] = useState(null);
@@ -9,7 +11,6 @@ const Home = () => {
   const [error, setError] = useState(false);
 
   const handlePokeClick = async () => {
-    console.log("P_IP: ", import.meta.env.VITE_APP_API_URL);
     try {
       setPoke(null);
       setLoading(true);
