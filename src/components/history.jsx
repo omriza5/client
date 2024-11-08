@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5001/api";
+const apiUrl = import.meta.env.VITE_APP_API_URL || "http://localhost:5001/api";
 
 const History = () => {
   const [pokemons, setPokemons] = useState([]);
